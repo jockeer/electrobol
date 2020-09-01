@@ -1,0 +1,103 @@
+:root {
+  --blanco: #ffffff;
+  --gris1: #edf2f6;
+  --gris2: #2f3848;
+  --gris3: #1a202d;
+  --negro: #000000;
+  --headingFont:'Raleway', sans-serif;
+  --textFont:  'Roboto', sans-serif;
+}
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+.containerLogin{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--gris3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.barra{
+  height: 10vh;
+  width: 100%;
+  background-color: var(--gris3);
+  display: flex;
+  align-items: center;
+}
+.barra h3{
+  color: white;
+  margin: 0;
+  margin-left: 20px;
+}
+aside  {
+  padding: 3rem;
+  flex: 0 0 300px;
+  background-color: var(--blanco);
+}
+.contenedor-app {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--gris1);
+}
+.seccion-principal {
+  flex: 1;
+}
+h1, h2 {
+  font-family: var(--headingFont);
+  font-weight: 900;
+  margin: 0 0 4rem 0;
+  text-align: center;
+  color: var(--gris2);
+}
+h1 span {
+  font-weight: 400;
+}
+h1 {
+  font-size: 2rem;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.material-icons{
+  vertical-align: middle;
+}
+.opcion{
+  color: #1a202d;
+}
+.opcion:hover{
+  color: #1a202d;
+  text-decoration: none;
+}
+.opcionMenu{
+  padding: 10px 0;
+  box-sizing: content-box;
+}
+.opcionMenu:hover{
+  box-sizing: border-box;
+  text-decoration: none;
+  background: rgba(0, 0, 0, .03);
+}
+main{
+  min-height: 90vh;
+}
+.main-home{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  column-gap: 10px;
+  row-gap: 10px;
+}
+main .container h2{
+  margin: 30px 0;
+  text-align: left;
+}
+
