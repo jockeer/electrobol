@@ -2,13 +2,14 @@ import React,{Fragment,useState,useEffect} from 'react'
 
 import Error from '../layout/Error'
 
-const FormRegistroCliente = ({cliente,guardarCliente,guardarNuevoCliente}) => {
+const FormRegistroCliente = ({equipo,cliente,guardarCliente,guardarNuevoCliente,guardarEquipo}) => {
 
     
 
     const [error, guardarError] = useState(false)
 
     const { nombre, apellido ,correo, telefono, ci } = cliente;
+    const { tipo, detalle ,fechaingreso, fechasalida,garantia } = equipo;
 
     useEffect(() => {
         
@@ -20,8 +21,14 @@ const FormRegistroCliente = ({cliente,guardarCliente,guardarNuevoCliente}) => {
             [e.target.name]:e.target.value
         })
     }
+    const onChangeEquipo = e => {       
+        guardarEquipo({
+            ...equipo,
+            [e.target.name]:e.target.value
+        })
+    }
     
-    const onSubmit = e => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         //Validar Formulario
@@ -30,6 +37,10 @@ const FormRegistroCliente = ({cliente,guardarCliente,guardarNuevoCliente}) => {
             return;
         }
         guardarError(false)
+
+        //insercion ala APIS
+
+        const APICLIENTE = await fetch(``);
     }
 
     return ( 
@@ -63,9 +74,9 @@ const FormRegistroCliente = ({cliente,guardarCliente,guardarNuevoCliente}) => {
                         <input type="text" className="form-control" id="correo" name="correo" value={correo} onChange={onChange}/>
                     </div>
                     <div className="form-group col-md-4">
-                        <label htmlFor="correo"><i className="material-icons">contact_mail</i> Garantia</label>
-                        <select name="" id=""  className="form-control">
-                            <option value="" selected disabled>Seleccione la opcion...</option>
+                        <label htmlFor="garantia"><i className="material-icons">contact_mail</i> Garantia</label>
+                        <select name="garantia" id="garantia" value={garantia} onChange={onChangeEquipo} className="form-control">
+                            <option defaultValue="" disabled>Seleccione la opcion...</option>
                             <option value="V" >Con garantia</option>
                             <option value="F" >No tiene garantia</option>
                         </select>
@@ -73,8 +84,18 @@ const FormRegistroCliente = ({cliente,guardarCliente,guardarNuevoCliente}) => {
                 </div>
                 <div className="form-row">
                     <div className="form-group col-md-4">
-                        <label htmlFor="correo"><i className="material-icons">contact_mail</i> Problemas</label>
-                       <textarea name="" id="" className="form-control" cols="5" rows="3"></textarea>
+                        <label htmlFor="detalle"><i className="material-icons">contact_mail</i> Problemas</label>
+                       <textarea name="detalle" id="detalle" value={detalle} onChange={onChangeEquipo} className="form-control" cols="5" rows="3"></textarea>
+                    </div>
+                    <div className="form-group col-md-4">
+                        <label htmlFor="tipo"><i className="material-icons">contact_mail</i> Garantia</label>
+                        <select name="tipo" id="tipo" value={tipo} onChange={onChangeEquipo} className="form-control">
+                            <option defaultValue="" disabled>Seleccione la opcion...</option>
+                            <option value="LAVADORA" >Lavadora</option>
+                            <option value="REFRIGERADOR" >Refrigerador</option>
+                            <option value="MICROONDAS" >Microondas</option>
+
+                        </select>
                     </div>
                     
                 </div>

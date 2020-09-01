@@ -15,6 +15,13 @@ const Reparaciones = () => {
         telefono: '',
         ci: ''
     })
+    const [ equipo, guardarEquipo ] = useState({
+        tipo: '',
+        detalle: '',
+        fechaingreso: '',
+        fechasalida: '',
+        garantia:''
+    })
 
     return ( 
         <div className="contenedor-app">
@@ -38,7 +45,7 @@ const Reparaciones = () => {
                             <div className="tab-content" id="myTabContent">
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 {nuevocliente
-                                    ?<FormRegistroCliente cliente={cliente} guardarNuevoCliente={guardarNuevoCliente} guardarCliente={guardarCliente}/>
+                                    ?<FormRegistroCliente equipo={equipo} cliente={cliente} guardarNuevoCliente={guardarNuevoCliente} guardarEquipo={guardarEquipo} guardarCliente={guardarCliente}/>
                                     :<FormRegistroEquipo cliente={cliente} guardarNuevoCliente={guardarNuevoCliente} guardarCliente={guardarCliente}/>
                                 }
                                 
