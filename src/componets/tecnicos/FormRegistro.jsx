@@ -38,6 +38,31 @@ const FormRegistroTecnicos = () => {
             return;
         }
         guardarError(false)
+
+        //insertar tecnico
+
+        // var t = new Date;
+        // let fecha = `${t.getFullYear()}-${t.getMonth()+1}-${t.getDate()}`
+
+        const url = `http://localhost:4000/api/registrarTecnico`
+
+        const data = {};
+        data.nombre = nombre
+        data.apellido = apellido
+        data.correo = correo
+        data.telefono = telefono
+        data.ci = ci;
+        
+        let JSO = JSON.stringify(data)
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            body: JSO, // data can be `string` or {object}!
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => alert('insertado correctamente'));
     }
 
     return ( 

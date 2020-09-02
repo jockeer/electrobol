@@ -2,7 +2,7 @@ import React,{Fragment,useState,useEffect} from 'react'
 
 import Error from '../layout/Error'
 
-const FormRegistroCliente = ({equipo,cliente,guardarCliente,guardarNuevoCliente,guardarEquipo}) => {
+const FormRegistroCliente = ({equipo, cliente, guardarCliente,guardarNuevoCliente, guardarEquipo}) => {
 
     
 
@@ -11,9 +11,7 @@ const FormRegistroCliente = ({equipo,cliente,guardarCliente,guardarNuevoCliente,
     const { nombre, apellido ,correo, telefono, ci } = cliente;
     const { tipo, detalle ,fechaingreso, fechasalida,garantia } = equipo;
 
-    useEffect(() => {
-        
-    }, [])
+    
 
     const onChange = e => {
         guardarCliente({
@@ -27,20 +25,78 @@ const FormRegistroCliente = ({equipo,cliente,guardarCliente,guardarNuevoCliente,
             [e.target.name]:e.target.value
         })
     }
-    
+    const registrarCliente = () =>{
+        const url = `http://localhost:4000/api/registrarCliente`
+
+        const data = {};
+        data.nombre = nombre
+        data.apellido = apellido
+        data.correo = correo
+        data.telefono = telefono
+        data.ci = ci;
+        
+        let JSO = JSON.stringify(data)
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            body: JSO, // data can be `string` or {object}!
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => alert('cliente insertado correctamente'));
+    }
+    const registrarElectrodomestico = () =>{
+        const url = `http://localhost:4000/api/registrarElectrodomestico`
+        var t = new Date();
+        let fecha = `${t.getFullYear()}-${t.getMonth()+1}-${t.getDate()}`
+        
+        const data = {};
+        data.tipo = tipo
+        data.detalleproblema = detalle
+        data.fechaingreso = fecha
+        data.fechasalida = fecha
+        data.ci = ci;
+        
+        let JSO = JSON.stringify(data)
+        fetch(url, {
+            method: 'POST', // or 'PUT'
+            body: JSO, // data can be `string` or {object}!
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(response => alert('electrodomenstico insertado correctamente'));
+    }
     const onSubmit = async (e) => {
         e.preventDefault();
 
         //Validar Formulario
-        if (nombre === '' || apellido === '' || correo === '' || telefono === '' || ci === '') {
+        if (nombre === '' || apellido === '' || correo === '' || telefono === '' || ci === ''|| tipo === '' || detalle === '' || garantia === '') {
             guardarError(true)
             return;
         }
         guardarError(false)
 
         //insercion ala APIS
-
-        const APICLIENTE = await fetch(``);
+        await registrarCliente()
+        await registrarElectrodomestico()
+        guardarCliente({
+            id: null,
+            nombre: '',
+            apellido: '',
+            correo: '',
+            telefono: '',
+            ci: ''
+        })
+        guardarEquipo({
+            tipo: '',
+            detalle: '',
+            fechaingreso: '',
+            fechasalida: '',
+            garantia:''
+        })
     }
 
     return ( 
@@ -88,7 +144,7 @@ const FormRegistroCliente = ({equipo,cliente,guardarCliente,guardarNuevoCliente,
                        <textarea name="detalle" id="detalle" value={detalle} onChange={onChangeEquipo} className="form-control" cols="5" rows="3"></textarea>
                     </div>
                     <div className="form-group col-md-4">
-                        <label htmlFor="tipo"><i className="material-icons">contact_mail</i> Garantia</label>
+                        <label htmlFor="tipo"><i className="material-icons">contact_mail</i> Tipo de Electromestico</label>
                         <select name="tipo" id="tipo" value={tipo} onChange={onChangeEquipo} className="form-control">
                             <option defaultValue="" disabled>Seleccione la opcion...</option>
                             <option value="LAVADORA" >Lavadora</option>

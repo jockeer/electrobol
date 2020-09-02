@@ -46,7 +46,7 @@ const Reparaciones = () => {
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 {nuevocliente
                                     ?<FormRegistroCliente equipo={equipo} cliente={cliente} guardarNuevoCliente={guardarNuevoCliente} guardarEquipo={guardarEquipo} guardarCliente={guardarCliente}/>
-                                    :<FormRegistroEquipo cliente={cliente} guardarNuevoCliente={guardarNuevoCliente} guardarCliente={guardarCliente}/>
+                                    :<FormRegistroEquipo equipo={equipo} cliente={cliente} guardarEquipo={guardarEquipo} guardarNuevoCliente={guardarNuevoCliente} guardarCliente={guardarCliente}/>
                                 }
                                 
                                 
