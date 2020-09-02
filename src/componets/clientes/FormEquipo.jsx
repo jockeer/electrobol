@@ -120,7 +120,7 @@ const FormRegitroEquipo = ({cliente, equipo, guardarNuevoCliente, guardarCliente
                     ? <Error mensaje="coloque un carnet valido"/>
                     : null
                 }
-                <button type="submit" className="btn btn-primary">buscar</button>
+                <button type="submit" className="btn btn-success">buscar</button>
             </form>
             {cicliente
                 ?
@@ -151,7 +151,7 @@ const FormRegitroEquipo = ({cliente, equipo, guardarNuevoCliente, guardarCliente
                             </div>
                             
                         </div>
-                        <button type="submit" className="btn btn-primary">Registrar Equipo</button>
+                        <button type="submit" className="btn btn-success">Registrar Equipo</button>
                     </form>
                 :null
             }

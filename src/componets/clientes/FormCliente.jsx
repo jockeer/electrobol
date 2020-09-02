@@ -159,7 +159,7 @@ const FormRegistroCliente = ({equipo, cliente, guardarCliente,guardarNuevoClient
                     ? <Error mensaje="Todos los campos deben estar llenos"/>
                     :null
                 }
-                <button type="submit" className="btn btn-primary">Registrar</button>
+                <button type="submit" className="btn btn-success">Registrar</button>
             </form>
         </Fragment>
      );
