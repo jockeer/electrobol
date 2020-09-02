@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {Link} from 'react-router-dom'
+
 const Tarea = ({tarea}) => {
     debugger
     return (
@@ -17,6 +19,9 @@ const Tarea = ({tarea}) => {
                 <p><b>Telefono: </b> {tarea.telefono}</p>
                 <p><b>Correo: </b> {tarea.correo}</p>
 
+            </div>
+            <div className="card-footer">
+                <Link to={`/detalle-electrodomestico/${tarea.id}`} className="btn btn-info" >Ver detalle</Link>
             </div>
         </div> 
      );

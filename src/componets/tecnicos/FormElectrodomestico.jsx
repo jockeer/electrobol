@@ -44,7 +44,7 @@ const Electrodomesticos = () => {
                         <h2>Lista de Tareas</h2>
                         <div className="containerTareas">
                             {tareas.length === 0
-                                ?null
+                                ?<p>No hay tareas asiganadas</p>
                                 :tareas.map( tarea => {
                                     return <Tarea key={tarea.id} tarea={tarea} />
                                 })

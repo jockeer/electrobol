@@ -125,11 +125,7 @@ main .container h2{
   padding: 5px;
   border-radius: 5px;
 }
-.card.sombra{
-  /* display: flex;
-  flex-direction: column; */
-  
-}
+
 .card-header{
   background-color: var(--gris3);
 }
@@ -138,5 +134,8 @@ main .container h2{
   grid-template-columns: repeat(2,1fr);
   row-gap: 20px;
   column-gap: 5px;
+}
+.card-footer{
+  text-align: right;
 }
 
