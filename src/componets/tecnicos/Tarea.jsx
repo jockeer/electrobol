@@ -12,8 +12,10 @@ const Tarea = ({tarea}) => {
                 <p><b>Tipo: </b> {tarea.tipo}</p>
                 <p><b>Cliente: </b> {tarea.cliente}</p>
                 {tarea.estado === 'evaluacion'
-                    ?<p className="prueba"><b>Estado: </b> {tarea.estado}</p>
-                    :null
+                    ?<p className="evaluacion"><b>Estado: </b> {tarea.estado}</p>
+                    :tarea.estado === 'reparacion'
+                    ?<p className="reparacion"><b>Estado: </b> {tarea.estado}</p>
+                    :<p className="terminado"><b>Estado: </b> {tarea.estado}</p>
                 }           
                 <p><b>Precio: </b> {tarea.precio} Bs.</p>
                 <p><b>Telefono: </b> {tarea.telefono}</p>
@@ -21,7 +23,7 @@ const Tarea = ({tarea}) => {
 
             </div>
             <div className="card-footer">
-                <Link to={`/detalle-electrodomestico/${tarea.id}`} className="btn btn-info" >Ver detalle</Link>
+                <Link to={`/detalle-electrodomestico/${tarea.id}/${tarea.idreparacion}`} className="btn btn-info" >Ver detalle</Link>
             </div>
         </div> 
      );

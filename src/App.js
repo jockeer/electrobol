@@ -8,6 +8,7 @@ import NuevaCuenta from './componets/auth/NuevaCuenta'
 import Tecnicos from './componets/tecnicos/Tecnicos'
 import Reparaciones from './componets/tecnicos/Reparaciones';
 import Reportes from './componets/tecnicos/Reportes';
+import Detalle from './componets/tecnicos/Detalle'
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/tecnicos" component={Tecnicos}/>
         <Route exact path="/reparaciones" component={Reparaciones}/>
         <Route exact path="/reportes" component={Reportes}/>
+        <Route exact path="/detalle-electrodomestico/:id/:idreparacion" component={Detalle}/>
       </Switch>
     </Router>
   );

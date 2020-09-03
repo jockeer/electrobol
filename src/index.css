@@ -57,6 +57,15 @@ h1, h2 {
   text-align: center;
   color: var(--gris2);
 }
+h3 {
+  font-family: var(--headingFont);
+  font-weight: 900;
+  margin: 40px 0;
+  text-align: left;
+  color: var(--gris2);
+  font-size: 2rem;
+  text-decoration: underline;
+}
 h1 span {
   font-weight: 400;
 }
@@ -120,8 +129,18 @@ main .container h2{
   -moz-box-shadow: 0px 6px 11px -8px rgba(0,0,0,0.9);
   box-shadow: 0px 6px 11px -8px rgba(0,0,0,0.9);
 }
-.prueba{
-  background: #ffffc5;
+.evaluacion{
+  background: #ffffcf;
+  padding: 5px;
+  border-radius: 5px;
+}
+.reparacion{
+  background: #ffd1d1;
+  padding: 5px;
+  border-radius: 5px;
+}
+.terminado{
+  background: #b9ffc2;
   padding: 5px;
   border-radius: 5px;
 }
@@ -137,5 +156,32 @@ main .container h2{
 }
 .card-footer{
   text-align: right;
+}
+.containerDatosElectro{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.containerDetalles{
+  background: white;
+}
+.detalle{
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  border-bottom: 1px solid rgba(114, 114, 114, 0.5);
+}
+.detalle p{
+  text-align: center;
+  margin: 0;
+  padding: 15px 0;
+}
+.btn-info{
+  margin-top: 10px;
+}
+.btnnormal{
+  color: #000000;
+}
+.btnnormal:hover{
+  
+  color: #000000;
 }
 
